@@ -21,7 +21,7 @@ def transcribe():
         stream.download(filename=filename)
 
         # Transcription avec Whisper
-        model = whisper.load_model("base")
+        model = whisper.load_model("tiny")
         result = model.transcribe(filename)
 
         # Nettoyage
