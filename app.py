@@ -21,10 +21,9 @@ def transcribe():
         stream.download(filename=filename)
 
         # Transcription avec Whisper
-        model = whisper.load_model("tiny")
+        model = whisper.load_model("tiny", device="cpu")
         result = model.transcribe(filename)
 
-        # Nettoyage
         os.remove(filename)
 
         return jsonify({"transcription": result["text"]})
@@ -32,4 +31,4 @@ def transcribe():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
