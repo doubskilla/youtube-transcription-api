@@ -10,6 +10,8 @@ app = Flask(__name__)
 def transcribe():
     data = request.get_json()
     youtube_url = data.get("url")
+    print("Reçu :", youtube_url)
+
     if not youtube_url:
         return jsonify({"error": "No YouTube URL provided"}), 400
 
