@@ -2,3 +2,4 @@ flask
 pytube
 openai-whisper
 ffmpeg-python
+beautifulsoup4
